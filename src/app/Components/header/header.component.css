@@ -1,0 +1,24 @@
+#navbar {
+  overflow: hidden;
+  background-color: rgb(57, 167, 130);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  transition: top 0.3s;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.5em;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 0 0 0;
+}
+
+li > a:hover {
+  color: bisque;
+}
