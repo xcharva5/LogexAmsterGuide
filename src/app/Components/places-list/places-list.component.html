@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="name">Search by name:</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="searchTerm" />
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Search by ZIP:</label>
+        <input type="text" class="form-control" id="zipcode">
+      </div>
+    </form>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Name</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>City</h3>
+    </div>
+    <div class="col-md-2">
+      <h3>ZIP Code</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>Address</h3>
+    </div>
+    <div class="col-md-1">
+      <h3>Start Year</h3>
+    </div>
+  </div>
+  <div *ngFor="let place of places | substringFilter:searchTerm">
+    <app-place-item [place]="place"></app-place-item>
+  </div>
+</div>

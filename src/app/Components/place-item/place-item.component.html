@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-3">
+      {{place.title}}
+    </div>
+    <div class="col-md-3">
+      {{place.location.city}}
+    </div>
+    <div class="col-md-2">
+      {{place.location.zipcode}}
+    </div>
+    <div class="col-md-3">
+      {{place.location.adress}}
+    </div>
+    <div class="col-md-1" *ngIf="place.dates.startdate">
+      {{place.dates.startdate | placeStartYear }}
+    </div>
+</div>
