@@ -2,12 +2,21 @@
   <div class="row">
     <form class="form-inline">
       <div class="form-group">
-        <label for="name">Search by name:</label>
+        <label for="title">Search by title:</label>
         <input type="text" class="form-control" name="title" [(ngModel)]="titleSearchTerm" />
       </div>
       <div class="form-group">
         <label for="zipcode">Search by ZIP:</label>
-        <input type="text" class="form-control" name="zip" [(ngModel)]="zipSearchTerm">
+        <input type="text" class="form-control" name="zipcode" [(ngModel)]="zipSearchTerm">
+      </div>
+      <div class="form-group">
+        <label for="city">Search by city:</label>
+        <button type="button" class="btn btn-primary">Select cities</button>
+      </div>
+      <div class="citiesFilter">
+        <div *ngFor="let place of places">
+          <input type="checkbox" class="form-check-input" value="">{{place.location.city}}
+        </div>
       </div>
     </form>
   </div>
