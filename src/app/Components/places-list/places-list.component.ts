@@ -11,7 +11,8 @@ export class PlacesListComponent implements OnInit {
 
   places: IPlace[];
   //filteredPlaces: IPlace[];
-  searchTerm: string;
+  titleSearchTerm: string;
+  zipSearchTerm: string;
   /*get searchTerm(): string {
     return this._searchTerm;
   }

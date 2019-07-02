@@ -1,8 +1,6 @@
 export interface IPlace {
   id: number,
   title: string,
-  city: string,
-  zipcode: string,
-  address: string,
+  location: {zipcode: string, city: string, adress: string},
   startdate: Date
 }

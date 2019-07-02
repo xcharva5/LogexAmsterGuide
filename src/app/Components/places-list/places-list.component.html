@@ -3,11 +3,11 @@
     <form class="form-inline">
       <div class="form-group">
         <label for="name">Search by name:</label>
-        <input type="text" class="form-control" name="name" [(ngModel)]="searchTerm" />
+        <input type="text" class="form-control" name="title" [(ngModel)]="titleSearchTerm" />
       </div>
       <div class="form-group">
         <label for="zipcode">Search by ZIP:</label>
-        <input type="text" class="form-control" id="zipcode">
+        <input type="text" class="form-control" name="zip" [(ngModel)]="zipSearchTerm">
       </div>
     </form>
   </div>
@@ -31,7 +31,8 @@
       <h3>Start Year</h3>
     </div>
   </div>
-  <div *ngFor="let place of places | substringFilter:searchTerm">
+
+  <div *ngFor="let place of places | substringFilter:titleSearchTerm:zipSearchTerm">
     <app-place-item [place]="place"></app-place-item>
   </div>
 </div>
