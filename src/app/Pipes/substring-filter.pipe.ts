@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IPlace } from 'src/app/Structures/place';
+import { Place } from 'src/app/Structures/place';
 import { zip } from 'rxjs';
 
 @Pipe({
@@ -7,7 +7,7 @@ import { zip } from 'rxjs';
 })
 export class SubstringFilterPipe implements PipeTransform {
 
-  transform(places: IPlace[], titleSearchTerm: string, zipSearchTerm: string): IPlace[] {
+  transform(places: Place[], titleSearchTerm: string, zipSearchTerm: string, yearSearchTerm: string): Place[] {
     if (places && places.length) {
       return places.filter(place => {
 
@@ -16,7 +16,7 @@ export class SubstringFilterPipe implements PipeTransform {
           return false;
         }
 
-        if (titleSearchTerm && place.title.toLowerCase().indexOf(titleSearchTerm.toLowerCase()) === -1) {
+        if (titleSearchTerm && place.name.toLowerCase().indexOf(titleSearchTerm.toLowerCase()) === -1) {
           return false;
         }
 

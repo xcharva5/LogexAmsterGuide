@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IPlace } from 'src/app/Structures/place';
+import { Place } from 'src/app/Structures/place';
 
 @Component({
   selector: 'app-place-item',
@@ -8,7 +8,7 @@ import { IPlace } from 'src/app/Structures/place';
 })
 export class PlaceItemComponent implements OnInit {
 
-  @Input() place: IPlace[];
+  @Input() place: Place[];
 
   constructor() { }
 

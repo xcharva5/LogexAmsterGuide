@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IPlace } from 'src/app/Structures/place';
+import { Place } from 'src/app/Structures/place';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class DataReaderService {
 
   constructor(private http: HttpClient) { }
 
-  getPlaces(): Observable<IPlace[]> {
-    return this.http.get<IPlace[]>(this.placesUrl);
+  getAllPlaces(): Observable<Place[]> {
+    return this.http.get<Place[]>(this.placesUrl);
   }
 }

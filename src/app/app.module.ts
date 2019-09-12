@@ -13,6 +13,7 @@ import { PlaceItemComponent } from './Components/place-item/place-item.component
 
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
 import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
+import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
     PlacesListComponent,
     PlaceItemComponent,
     PlaceStartYearPipe,
-    SubstringFilterPipe
+    SubstringFilterPipe,
+    CitiesFilterPipe
   ],
   imports: [
     BrowserModule,

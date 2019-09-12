@@ -1,6 +1,6 @@
 #navbar {
   overflow: hidden;
-  background-color: rgb(57, 167, 130);
+  background-color: rgba(57, 167, 130);
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
