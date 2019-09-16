@@ -8,7 +8,7 @@ export interface Place {
     longitude: string
   }
   dates: {
-    startdate: string;
+    startdate: Date;
   }
 
 }

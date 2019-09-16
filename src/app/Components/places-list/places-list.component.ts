@@ -13,12 +13,17 @@ export class PlacesListComponent implements OnInit {
   titleSearchTerm: string;
   zipSearchTerm: string;
   yearSearchTerm: string;
+  uniqueCities: Set<string>;
 
   constructor(private _dataReaderService: DataReaderService) { }
 
   ngOnInit() {
     this._dataReaderService.getAllPlaces()
       .subscribe((data: Place[]) => this.places = data);
+  }
+
+  showCityFilter() {
+    this.uniqueCities = new Set(this.places.map(place => place.location.city));
   }
 
 }

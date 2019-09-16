@@ -17,7 +17,16 @@
   <div class="row">
     <div>
       <label for="city">Search by city:</label>
-      <button type="button" class="btn btn-primary">Select cities</button>
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo" (click)="showCityFilter()">Select cities</button>
+    </div>
+  </div>
+  <div class="row">
+    <div id="demo" class="collapse">
+      <span *ngFor="let city of uniqueCities">
+        <div class="checkbox">
+          <label><input type="checkbox" value="">{{ city }}</label>
+        </div>
+      </span>
     </div>
   </div>
 
