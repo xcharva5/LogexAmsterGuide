@@ -16,7 +16,12 @@ export class SubstringFilterPipe implements PipeTransform {
           return false;
         }
 
-        if (titleSearchTerm && place.name.toLowerCase().indexOf(titleSearchTerm.toLowerCase()) === -1) {
+        if (titleSearchTerm && place.title.toLowerCase().indexOf(titleSearchTerm.toLowerCase()) === -1) {
+          return false;
+        }
+
+        if (yearSearchTerm &&
+          ((place.dates.startdate && place.dates.startdate.toString().indexOf(yearSearchTerm) === -1) || !place.dates.startdate)) {
           return false;
         }
 

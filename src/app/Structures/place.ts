@@ -1,6 +1,14 @@
-export class Place {
-  id: number;
-  name: string;
-  location: {zipcode: string, city: string, adress: string};
-  startyear: string;
+export interface Place {
+  title: string;
+  location: {
+    city: string,
+    adress: string,
+    zipcode: string,
+    latitude: string,
+    longitude: string
+  }
+  dates: {
+    startdate: string;
+  }
+
 }
