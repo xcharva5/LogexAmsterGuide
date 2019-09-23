@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
 import { Place } from 'src/app/Structures/place';
+import { CityFilter } from 'src/app/Structures/cityFilter';
 
 @Component({
   selector: 'app-places-list',
@@ -13,7 +14,7 @@ export class PlacesListComponent implements OnInit {
   titleSearchTerm: string;
   zipSearchTerm: string;
   yearSearchTerm: string;
-  uniqueCities: Set<string>;
+  citiesFilter: Array<CityFilter>;
 
   constructor(private _dataReaderService: DataReaderService) { }
 
@@ -23,7 +24,20 @@ export class PlacesListComponent implements OnInit {
   }
 
   showCityFilter() {
-    this.uniqueCities = new Set(this.places.map(place => place.location.city));
+    let uniqueCities: Array<string> = Array.from(new Set(this.places.map(place => place.location.city)));
+
+    this.citiesFilter = uniqueCities.map(city => <CityFilter> {
+      name: city,
+      checked: false
+    });
+  }
+
+  checked() {
+    if (this.citiesFilter) {
+      return this.citiesFilter.filter(item => { return item.checked; });
+    } else {
+      return null;
+    }
   }
 
 }

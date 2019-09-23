@@ -14,7 +14,7 @@ import { PlaceItemComponent } from './Components/place-item/place-item.component
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
 import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
 import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
-import { UniquePipe } from './pipes/unique.pipe';
+import { CityFilterPipe } from './pipes/city-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { UniquePipe } from './pipes/unique.pipe';
     PlaceStartYearPipe,
     SubstringFilterPipe,
     CitiesFilterPipe,
-    UniquePipe
+    CityFilterPipe
   ],
   imports: [
     BrowserModule,

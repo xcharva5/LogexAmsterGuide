@@ -22,12 +22,13 @@
   </div>
   <div class="row">
     <div id="demo" class="collapse">
-      <span *ngFor="let city of uniqueCities">
+      <span *ngFor="let city of citiesFilter">
         <div class="checkbox">
-          <label><input type="checkbox" value="">{{ city }}</label>
+          <label><input type="checkbox" [(ngModel)]="city.checked" [value]="city.name">{{ city.name }}</label>
         </div>
       </span>
     </div>
+    <pre>Selected items: <span *ngFor="let filterItem of checked()" style="padding-right:10px;">{{ filterItem.name }}</span></pre>
   </div>
 
   <br>
@@ -50,7 +51,7 @@
     </div>
   </div>
 
-  <div *ngFor="let place of places | substringFilter:titleSearchTerm:zipSearchTerm:yearSearchTerm">
+  <div *ngFor="let place of places | substringFilter:titleSearchTerm:zipSearchTerm:yearSearchTerm | cityFilter: { 'location.city': ''} : checked() : false">
     <app-place-item [place]="place"></app-place-item>
   </div>
 </div>

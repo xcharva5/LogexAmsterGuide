@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Place } from 'src/app/Structures/place';
-import { zip } from 'rxjs';
 
 @Pipe({
   name: 'substringFilter'
