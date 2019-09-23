@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
 import { Place } from 'src/app/Structures/place';
 import { CityFilter } from 'src/app/Structures/cityFilter';
+import { of } from 'rxjs/internal/observable/of';
 
 @Component({
   selector: 'app-places-list',
@@ -19,17 +20,32 @@ export class PlacesListComponent implements OnInit {
   constructor(private _dataReaderService: DataReaderService) { }
 
   ngOnInit() {
-    this._dataReaderService.getAllPlaces()
-      .subscribe((data: Place[]) => this.places = data);
+    const myObserver2 = {
+      next: (data: Place[]) => this.places = data,
+      error: err => console.error('Observer got an error: ' + err),
+      complete: () => {
+        console.log('Observer got a complete notification');
+        let uniqueCities: Array<string> = Array.from(new Set(this.places.map(place => place.location.city)));
+        this.citiesFilter = uniqueCities.map(city => <CityFilter> {
+          name: city,
+          checked: false
+        });
+        }
+    };
+
+    this._dataReaderService.getAllPlaces().subscribe(myObserver2);
+
+    /*this._dataReaderService.getAllPlaces()
+      .subscribe((data: Place[]) => this.places = data);*/
   }
 
   showCityFilter() {
-    let uniqueCities: Array<string> = Array.from(new Set(this.places.map(place => place.location.city)));
+    /*let uniqueCities: Array<string> = Array.from(new Set(this.places.map(place => place.location.city)));
 
     this.citiesFilter = uniqueCities.map(city => <CityFilter> {
       name: city,
       checked: false
-    });
+    });*/
   }
 
   checked() {
