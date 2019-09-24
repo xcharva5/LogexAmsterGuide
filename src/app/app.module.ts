@@ -15,6 +15,7 @@ import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
 import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
 import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
 import { CityFilterPipe } from './pipes/city-filter.pipe';
+import { PlaceDetailComponent } from './Components/place-detail/place-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CityFilterPipe } from './pipes/city-filter.pipe';
     PlaceStartYearPipe,
     SubstringFilterPipe,
     CitiesFilterPipe,
-    CityFilterPipe
+    CityFilterPipe,
+    PlaceDetailComponent
   ],
   imports: [
     BrowserModule,
