@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-place-detail',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceDetailComponent implements OnInit {
 
-  constructor() { }
+  PlaceId: string;
+
+  constructor( private route: ActivatedRoute ) {
+    this.route.params.subscribe((params: Params) => {
+      this.PlaceId = params['placeid'];
+    });
+
+
+  }
 
   ngOnInit() {
   }

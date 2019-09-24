@@ -33,23 +33,31 @@
 
   <br>
 
+  <button class="btn btn-primary" (click)="showPlace('aceb30d9-8a56-4073-a863-7340a67f32c6')">Obtain a place</button>
+
+  <br>
+
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <h3>Name</h3>
     </div>
     <div class="col-md-2">
       <h3>City</h3>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       <h3>ZIP Code</h3>
     </div>
     <div class="col-md-3">
       <h3>Address</h3>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       <h3>Start Year</h3>
     </div>
   </div>
+
+  <!--<pre>
+  {{places | json}}
+</pre>-->
 
   <div *ngFor="let place of places | substringFilter:titleSearchTerm:zipSearchTerm:yearSearchTerm | cityFilter: { 'location.city': ''} : checked() : false">
     <app-place-item [place]="place"></app-place-item>

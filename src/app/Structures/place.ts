@@ -1,4 +1,5 @@
 export interface Place {
+  trcid: string;
   title: string;
   location: {
     city: string,

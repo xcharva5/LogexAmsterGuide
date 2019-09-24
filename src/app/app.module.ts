@@ -16,6 +16,13 @@ import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
 import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
 import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { PlaceDetailComponent } from './Components/place-detail/place-detail.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'detail/:placeid', component: PlaceDetailComponent },
+  { path: 'places', component: PlacesListComponent },
+  { path: '', redirectTo: 'places', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
@@ -32,6 +39,7 @@ import { PlaceDetailComponent } from './Components/place-detail/place-detail.com
     PlaceDetailComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

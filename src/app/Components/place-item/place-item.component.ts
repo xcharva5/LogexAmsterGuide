@@ -8,7 +8,7 @@ import { Place } from 'src/app/Structures/place';
 })
 export class PlaceItemComponent implements OnInit {
 
-  @Input() place: Place[];
+  @Input() place: Place;
 
   constructor() { }
 

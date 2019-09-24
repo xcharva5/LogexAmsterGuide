@@ -24,7 +24,7 @@ export class PlacesListComponent implements OnInit {
       next: (data: Place[]) => this.places = data,
       error: err => console.error('Observer got an error: ' + err),
       complete: () => {
-        console.log('Observer got a complete notification');
+        //console.log('Observer got a complete notification');
         let uniqueCities: Array<string> = Array.from(new Set(this.places.map(place => place.location.city)));
         this.citiesFilter = uniqueCities.map(city => <CityFilter> {
           name: city,
@@ -54,6 +54,17 @@ export class PlacesListComponent implements OnInit {
     } else {
       return null;
     }
+  }
+
+  showPlace(id: string) {
+    const myObserver3 = {
+      error: err => console.error('Observer got an error: ' + err),
+      complete: () => {
+        console.log(this.places.filter((place) => place.trcid === id));
+      }
+    };
+
+    this._dataReaderService.getAllPlaces().subscribe(myObserver3);
   }
 
 }
