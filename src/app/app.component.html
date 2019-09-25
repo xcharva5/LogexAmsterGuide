@@ -1,5 +1,12 @@
 <app-header></app-header>
 
+<div class="container text-center">
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="checkChange($event)">
+    <label class="custom-control-label" for="customSwitch1">List/Map</label>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
 
 <!--<app-places-list></app-places-list>-->

@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   title = 'LogexAmsterGuide';
+
+  constructor(private router: Router) {}
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
@@ -23,6 +26,15 @@ export class AppComponent {
   topFunction = function() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+
+  checkChange(event) {
+    //console.log(event.currentTarget.checked);
+    if (event.currentTarget.checked) {
+      this.router.navigate(['/placesmap']);
+    } else {
+      this.router.navigate(['/places']);
+    }
   }
 
 }

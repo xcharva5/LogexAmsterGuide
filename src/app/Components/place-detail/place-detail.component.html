@@ -6,11 +6,16 @@
   <p>{{ place.location.adress }}</p>
   <p>{{ place.location.city }}</p>
   <p>{{ place.location.zipcode }}</p>
+  <p>Lat: {{ place.location.latitude }}, Lng: {{ place.location.longitude }}</p>
   <div *ngFor="let url of place.urls">
     <a [href]="url"> Link to website </a>
   </div>
+
+  <agm-map [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates" [zoom]="14">
+    <agm-marker [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates"></agm-marker>
+  </agm-map>
+
   <div *ngFor="let image of place.media">
     <img [src]="image.url" alt="img">
-    {{ image.url }}
   </div>
 </div>

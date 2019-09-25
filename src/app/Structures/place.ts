@@ -5,8 +5,8 @@ export interface Place {
     city: string,
     adress: string,
     zipcode: string,
-    latitude: string,
-    longitude: string
+    latitude: number,
+    longitude: number
   };
   urls: Array<string>;
   media: Array<Media>;
