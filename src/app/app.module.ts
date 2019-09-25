@@ -18,11 +18,7 @@ import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { PlaceDetailComponent } from './Components/place-detail/place-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const appRoutes: Routes = [
-  { path: 'detail/:placeid', component: PlaceDetailComponent },
-  { path: 'places', component: PlacesListComponent },
-  { path: '', redirectTo: 'places', pathMatch: 'full'}
-];
+
 
 @NgModule({
   declarations: [
@@ -39,7 +35,7 @@ const appRoutes: Routes = [
     PlaceDetailComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    //RouterModule.forRoot(appRoutes),
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

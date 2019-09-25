@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-      {{place.trcid}}||{{ place.title }}
+      {{ place.title }}
     </div>
     <div class="col-md-2">
       {{ place.location.city }}
@@ -18,6 +18,6 @@
       n/a
     </div>
     <div class="col-md-1">
-      <button type="button" class="btn btn-primary">Edit</button>
+      <button routerLinkActive="active" [routerLink]="['/detail', place.trcid]" type="button" class="btn btn-primary">Edit</button>
     </div>
 </div>

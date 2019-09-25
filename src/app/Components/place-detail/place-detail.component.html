@@ -1,16 +1,16 @@
-<div class="container text-center">
-  <h1>Place Detail {{ PlaceId }}</h1>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
-  <p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
+
+
+<div *ngIf="place$ | async as place" class="container text-center">
+  <h2>{{ place.title }}</h2>
+  <button class="btn btn-primary" routerLinkActive="active" [routerLink]="['/places']">Back</button>
+  <p>{{ place.location.adress }}</p>
+  <p>{{ place.location.city }}</p>
+  <p>{{ place.location.zipcode }}</p>
+  <div *ngFor="let url of place.urls">
+    <a [href]="url"> Link to website </a>
+  </div>
+  <div *ngFor="let image of place.media">
+    <img [src]="image.url" alt="img">
+    {{ image.url }}
+  </div>
 </div>
