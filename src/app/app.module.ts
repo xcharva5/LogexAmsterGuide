@@ -19,6 +19,9 @@ import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
 import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
 import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { CoordinatesPipe } from './Pipes/coordinates.pipe';
+import { EventsListComponent } from './Components/events-list/events-list.component';
+import { EventItemComponent } from './Components/event-item/event-item.component';
+import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { CoordinatesPipe } from './Pipes/coordinates.pipe';
     CityFilterPipe,
     PlaceDetailComponent,
     PlacesMapComponent,
-    CoordinatesPipe
+    CoordinatesPipe,
+    EventsListComponent,
+    EventItemComponent,
+    EventsTitleFilterPipe
   ],
   imports: [
     BrowserModule,

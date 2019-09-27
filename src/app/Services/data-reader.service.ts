@@ -9,8 +9,8 @@ import { filter, map } from 'rxjs/operators';
 })
 export class DataReaderService {
 
-  private placesUrl: string = '/assets/data/establishment-data.json';
-  private eventsUrl: string = '/assets/data/events-data.json';
+  private placesUrl = '/assets/data/establishment-data.json';
+  private eventsUrl = '/assets/data/events-data.json';
 
   constructor(private http: HttpClient) { }
 
@@ -22,5 +22,9 @@ export class DataReaderService {
     return this.getAllPlaces().pipe(
       map((places: Place[]) => places.find(place => place.trcid === id))
     );
+  }
+
+  getAllEvents(): Observable<Event[]> {
+    return this.http.get<Event[]>(this.eventsUrl);
   }
 }
