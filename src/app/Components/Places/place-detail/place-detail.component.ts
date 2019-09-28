@@ -13,25 +13,23 @@ import { Observable } from 'rxjs';
 })
 export class PlaceDetailComponent implements OnInit {
 
-  PlaceId: string;
-  place$: Observable<Place>;
+  placeId: string;
+  selectedPlace: Observable<Place>;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private reader: DataReaderService ) {
 
     this.route.params.subscribe((params: Params) => {
-      this.PlaceId = params['placeid'];
+      this.placeId = params.placeid;
     });
   }
 
   ngOnInit() {
-    this.place$ = this.route.paramMap.pipe(
+    this.selectedPlace = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.reader.getPlace(params.get('placeid')))
     );
-    console.log(this.place$);
   }
 
 }

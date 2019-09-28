@@ -15,8 +15,4 @@ export class PlaceItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  show(place: Place) {
-    alert(place.trcid);
-  }
-
 }

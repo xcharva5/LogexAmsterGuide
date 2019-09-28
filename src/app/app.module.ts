@@ -1,3 +1,4 @@
+// modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -5,29 +6,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 
+// components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
-import { ContentComponent } from './Components/content/content.component';
 import { FooterComponent } from './Components/footer/footer.component';
-import { PlacesListComponent } from './Components/places-list/places-list.component';
-import { PlaceItemComponent } from './Components/place-item/place-item.component';
-import { PlaceDetailComponent } from './Components/place-detail/place-detail.component';
-import { PlacesMapComponent } from './Components/places-map/places-map.component';
 
+import { PlacesListComponent } from './Components/Places/places-list/places-list.component'; // ok
+import { PlaceItemComponent } from './Components/Places/place-item/place-item.component'; // ok
+import { PlaceDetailComponent } from './Components/Places/place-detail/place-detail.component'; // ok
+import { PlacesMapComponent } from './Components/Places/places-map/places-map.component'; // ok
+
+import { EventsListComponent } from './Components/events-list/events-list.component';
+import { EventItemComponent } from './Components/event-item/event-item.component';
+
+// pipes
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
 import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
 import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
 import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { CoordinatesPipe } from './Pipes/coordinates.pipe';
-import { EventsListComponent } from './Components/events-list/events-list.component';
-import { EventItemComponent } from './Components/event-item/event-item.component';
 import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
+import { PlacesComponent } from './Components/Places/places/places.component';
+import { PlacesSwitchComponent } from './Components/Places/places-switch/places-switch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContentComponent,
     FooterComponent,
     PlacesListComponent,
     PlaceItemComponent,
@@ -40,7 +45,9 @@ import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
     CoordinatesPipe,
     EventsListComponent,
     EventItemComponent,
-    EventsTitleFilterPipe
+    EventsTitleFilterPipe,
+    PlacesComponent,
+    PlacesSwitchComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,7 @@ import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
     HttpClientModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCc2j377we3MG6RhUWHRebUnapTnaaWbEE'
+      apiKey: 'AIzaSyCc2j377we3MG6RhUWHRebUnapTnaaWbEE'  // API key for Google Maps
     })
   ],
   providers: [],

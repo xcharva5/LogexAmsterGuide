@@ -1,3 +1,7 @@
+* {
+  font-family: 'Dosis', sans-serif;
+}
+
 #goTopBtn {
   display: block; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */

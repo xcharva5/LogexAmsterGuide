@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
 import { Place } from 'src/app/Structures/place';
 import { CityFilter } from 'src/app/Structures/cityFilter';
-import { of } from 'rxjs/internal/observable/of';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-places-list',
@@ -17,7 +17,10 @@ export class PlacesListComponent implements OnInit {
   yearSearchTerm: string;
   citiesFilter: Array<CityFilter>;
 
-  constructor(private _dataReaderService: DataReaderService) { }
+  constructor(
+    private dataReaderService: DataReaderService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     const myObserver2 = {
@@ -32,7 +35,7 @@ export class PlacesListComponent implements OnInit {
         }
     };
 
-    this._dataReaderService.getAllPlaces().subscribe(myObserver2);
+    this.dataReaderService.getAllPlaces().subscribe(myObserver2);
   }
 
   checked() {
@@ -42,16 +45,4 @@ export class PlacesListComponent implements OnInit {
       return null;
     }
   }
-
-  showPlace(id: string) {
-    const myObserver3 = {
-      error: err => console.error('Observer got an error: ' + err),
-      complete: () => {
-        console.log(this.places.filter((place) => place.trcid === id));
-      }
-    };
-
-    this._dataReaderService.getAllPlaces().subscribe(myObserver3);
-  }
-
 }

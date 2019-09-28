@@ -1,0 +1,22 @@
+<div class="container" [routerLink]="['/detail', place.trcid]">
+  <div class="row">
+      <div class="col-md-4">
+        {{ place.title }}
+      </div>
+      <div class="col-md-2">
+        {{ place.location.city }}
+      </div>
+      <div class="col-md-1">
+        {{ place.location.zipcode }}
+      </div>
+      <div class="col-md-3">
+        {{ place.location.adress }}
+      </div>
+      <div class="col-md-2 text-right" *ngIf="place.dates.startdate">
+        {{ place.dates.startdate }}
+      </div>
+      <div class="col-md-2 text-right" *ngIf="!place.dates.startdate">
+        n/a
+      </div>
+  </div>
+</div>

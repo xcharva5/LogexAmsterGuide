@@ -1,0 +1,36 @@
+* {
+  font-family: 'Dosis', sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+#selectedCities {
+  font-size: 1em;
+  margin: 5px 0;
+}
+
+#selectedCities > span {
+  margin-left: 10px;
+}
+
+#filterCity > label {
+  margin-right: 20px;
+}
+
+#filterCity > button {
+  background-color: rgba(57, 167, 130);
+  color: white;
+  border: 0px;
+}
+
+#cities > span {
+  display: inline;
+}
+
+.horizontal-separator {
+  max-width: inherit;
+  padding: 50px 50px 50px 0;
+
+}

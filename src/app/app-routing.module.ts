@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PlaceDetailComponent } from './Components/place-detail/place-detail.component';
-import { PlacesListComponent } from './Components/places-list/places-list.component';
-import { PlacesMapComponent } from './Components/places-map/places-map.component';
+import { PlaceDetailComponent } from './Components/Places/place-detail/place-detail.component';
+import { PlacesListComponent } from './Components/Places/places-list/places-list.component';
+import { PlacesMapComponent } from './Components/Places/places-map/places-map.component';
 import { EventsListComponent } from './Components/events-list/events-list.component';
+import { PlacesComponent } from './Components/Places/places/places.component';
 
 const routes: Routes = [
   { path: 'detail/:placeid', component: PlaceDetailComponent },
-  { path: 'places', component: PlacesListComponent },
-  { path: 'placesmap', component: PlacesMapComponent},
+  { path: 'places', component: PlacesComponent, children: [
+      { path: 'list', component: PlacesListComponent },
+      { path: 'map', component: PlacesMapComponent }
+  ]},
   { path: 'events', component: EventsListComponent},
-  { path: '', redirectTo: 'places', pathMatch: 'full'},
-  { path: '**', redirectTo: 'places'}
-
+  { path: '', redirectTo: 'places/list', pathMatch: 'full'},
+  { path: '**', redirectTo: 'places/list'}
 ];
 
 @NgModule({

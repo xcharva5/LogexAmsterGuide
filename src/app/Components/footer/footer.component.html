@@ -1,5 +1,11 @@
-<div class="container footer text-center">
-  <--- THIS IS FOOTER --->
-  <p>++ add sorting by click on a column header</p>
-  <p>++ pagination of places</p>
-</div>
+<footer class="page-footer font-small pt-4">
+    <div class="footer-links container text-center">
+      <a [routerLink]="['/places/list']">PLACES | </a>
+      <a [routerLink]="['/events']">EVENTS | </a>
+      <a [routerLink]="['/places/list']">ABOUT</a>
+    </div>
+
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <span>Ondra Charvat</span>
+    </div>
+</footer>

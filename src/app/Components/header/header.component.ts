@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,7 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   prevScrollPos = window.pageYOffset;
 
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     // navigation logic
     let currentScrollPos = window.pageYOffset;
 
-    if (this.prevScrollPos > currentScrollPos) {  //(currentScrollPos > 70) &&
+    if (this.prevScrollPos > currentScrollPos) { 
       document.getElementById("navbar").style.top = "0";
     } else {
       document.getElementById("navbar").style.top = "-60px";
@@ -35,9 +35,8 @@ export class HeaderComponent implements OnInit {
   }
 
   // When the user clicks on the button, scroll to the top of the document
-  topFunction = function() {
+  topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
-
 }
