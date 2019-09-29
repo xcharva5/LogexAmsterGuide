@@ -1,10 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router';
-import { parse } from 'querystring';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
 import { Place } from 'src/app/Structures/place';
-import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-place-detail',
@@ -15,12 +12,6 @@ export class PlaceDetailComponent implements OnInit {
 
   placeId: string;
   selectedPlace: Place;
-  imageUrlArray = [
-    '../../../../assets/images/img1.jpg',
-    '../../../../assets/images/img2.jpg',
-    '../../../../assets/images/img3.jpg',
-    '../../../../assets/images/img4.jpg',
-  ]
   imagesUrl: Array<string>;
 
   constructor(

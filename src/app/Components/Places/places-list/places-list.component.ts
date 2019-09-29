@@ -19,8 +19,7 @@ export class PlacesListComponent implements OnInit {
 
   constructor(
     private dataReaderService: DataReaderService,
-    private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     const myObserver2 = {

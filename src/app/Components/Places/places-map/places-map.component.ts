@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Place } from 'src/app/Structures/place';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
 import { Router } from '@angular/router';
+import { CityFilter } from 'src/app/Structures/cityFilter';
 
 @Component({
   selector: 'app-places-map',
@@ -9,25 +10,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./places-map.component.css']
 })
 export class PlacesMapComponent implements OnInit {
-
-  lat = 52.380470;
-  lng = 4.902337;
+  lat: number;
+  lng: number;
   places: Place[];
   previous;
-
+  titleSearchTerm: string;
+  zipSearchTerm: string;
+  yearSearchTerm: string;
+  citiesFilter: Array<CityFilter>;
 
   constructor(
-    private _dataReaderService: DataReaderService,
-    private router: Router
-  ) { }
+    private dataReaderService: DataReaderService
+  ) {
+    this.lat = 52.379956;
+    this.lng = 4.900384;
+  }
 
   ngOnInit() {
-    const myObserver2 = {
+    const myObserver = {
       next: (data: Place[]) => this.places = data,
       error: err => console.error('Observer got an error: ' + err)
     };
 
-    this._dataReaderService.getAllPlaces().subscribe(myObserver2);
+    const myObserver2 = {
+      next: (data: Place[]) => this.places = data,
+      error: err => console.error('Observer got an error: ' + err),
+      complete: () => {
+        let uniqueCities: Array<string> = Array.from(new Set(this.places.map(place => place.location.city)));
+        this.citiesFilter = uniqueCities.map(city => <CityFilter> {
+          name: city,
+          checked: false
+        });
+      }
+    };
+
+    this.dataReaderService.getAllPlaces().subscribe(myObserver);
+    this.dataReaderService.getAllPlaces().subscribe(myObserver2);
   }
 
   clickedMarker(infowindow) {
@@ -37,9 +55,11 @@ export class PlacesMapComponent implements OnInit {
     this.previous = infowindow;
   }
 
-  goToDetails(trcid) {
-    //this.router.navigate(['map'], { relativeTo: this.route });
-    //[routerLink]="['/detail', place.trcid]
+  checked() {
+    if (this.citiesFilter) {
+      return this.citiesFilter.filter(item => { return item.checked; });
+    } else {
+      return null;
+    }
   }
-
 }

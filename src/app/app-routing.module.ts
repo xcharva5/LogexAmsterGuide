@@ -7,10 +7,10 @@ import { EventsListComponent } from './Components/events-list/events-list.compon
 import { PlacesComponent } from './Components/Places/places/places.component';
 
 const routes: Routes = [
-  { path: 'detail/:placeid', component: PlaceDetailComponent },
   { path: 'places', component: PlacesComponent, children: [
       { path: 'list', component: PlacesListComponent },
-      { path: 'map', component: PlacesMapComponent }
+      { path: 'map', component: PlacesMapComponent },
+      { path: 'detail/:placeid', component: PlaceDetailComponent }
   ]},
   { path: 'events', component: EventsListComponent},
   { path: '', redirectTo: 'places/list', pathMatch: 'full'},

@@ -1,15 +1,57 @@
 <div class="container">
+  <!-- filters -->
+  <div>
+    <div class="row">
+      <div class="col-sm-4">
+        <label>Search by title:</label>
+        <input type="text" class="form-control" name="title" [(ngModel)]="titleSearchTerm" />
+      </div>
+      <div class="col-sm-4">
+        <label>Search by ZIP:</label>
+        <input type="text" class="form-control" name="zipcode" [(ngModel)]="zipSearchTerm">
+      </div>
+      <div class="col-sm-4">
+        <label>Search by year:</label>
+        <input type="text" class="form-control" name="year" [(ngModel)]="yearSearchTerm">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-12" id="filterCity">
+        <label>Search by city:</label>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#cities">Select cities</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="selectedCities">Selected items: <span *ngFor="let filterItem of checked()" style="padding-right:10px;"> {{ filterItem.name }} </span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="cities" class="collapse">
+        <span *ngFor="let city of citiesFilter | orderBy:'name':false">
+          <div class="checkbox">
+            <div><input type="checkbox" [(ngModel)]="city.checked" [value]="city.name">{{ city.name }}</div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <img class="horizontal-separator" src="../../../../assets/images/web_separator.png" alt="web_separator">
+
+  <!-- map -->
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
     <agm-marker
-      *ngFor="let place of places; let i = index;"
+      *ngFor="let place of places | substringFilter:titleSearchTerm:zipSearchTerm:yearSearchTerm | cityFilter: { 'location.city': ''} : checked() : false"
       (markerClick)="clickedMarker(infoWindow)"
       [latitude]="place.location.latitude | coordinates"
       [longitude]="place.location.longitude | coordinates">
 
-      <agm-info-window
-        #infoWindow
-        (onclick)="goToDetails(place.trcid);">
-        <strong>{{ place.title }}</strong><br>
+      <agm-info-window #infoWindow>
+        <h4>{{ place.title }}</h4>
+        <br>
+        <button class="btn btn-primary" [routerLink]="['/places/detail', place.trcid]">Details</button>
       </agm-info-window>
     </agm-marker>
   </agm-map>

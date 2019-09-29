@@ -11,9 +11,16 @@ export class PlacesSwitchComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute
-    ) { }
+  ) { }
 
   ngOnInit() {
+    const switchElement: HTMLInputElement = document.getElementById('view-switch') as HTMLInputElement;
+
+    if (this.router.url === '/places/list') {
+      switchElement.checked = false;
+    } else {
+      switchElement.checked = true;
+    }
   }
 
   checkChange(event) {
