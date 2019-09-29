@@ -1,0 +1,23 @@
+.container {
+  margin-top: 100px;
+  font-family: 'Dosis', sans-serif;
+}
+
+agm-map {
+  height: 300px;
+}
+
+button {
+  margin: 16px 0;
+  background-color: rgba(57, 167, 130);
+  border: none;
+}
+
+button:hover {
+  color: bisque;
+  background-color: rgba(57, 167, 130);
+}
+
+.map {
+  margin: 20px 0;
+}

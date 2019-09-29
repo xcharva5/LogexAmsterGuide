@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CulturalEvent } from 'src/app/Structures/culturalEvent';
 
 @Component({
   selector: 'app-event-item',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EventItemComponent implements OnInit {
 
-  @Input() event: Event;
+  @Input() event: CulturalEvent;
 
   constructor() { }
 

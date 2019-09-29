@@ -1,0 +1,33 @@
+<div class="container">
+    <!-- filters -->
+    <div class="row">
+      <div class="col-sm-7">
+        <label>Search by title:</label>
+        <input type="text" class="form-control" name="title" [(ngModel)]="titleSearchTerm" />
+      </div>
+
+      <div class="col-sm-5">
+        <label >Search by date:</label>
+        <input type="month" class="form-control" name="bday">
+      </div>
+      <div class="col-sm-2"> </div>
+    </div>
+
+    <img class="horizontal-separator" src="../../../../assets/images/web_separator.png" alt="web_separator">
+
+    <!-- map -->
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+      <agm-marker
+        *ngFor="let event of events"
+        (markerClick)="clickedMarker(infoWindow)"
+        [latitude]="event.location.latitude | coordinates"
+        [longitude]="event.location.longitude | coordinates">
+
+        <agm-info-window #infoWindow>
+          <h4>{{ event.title }}</h4>
+          <br>
+          <button class="btn btn-primary" [routerLink]="['/events/detail', event.trcid]">Details</button>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>

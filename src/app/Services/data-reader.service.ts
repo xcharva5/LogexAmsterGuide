@@ -28,6 +28,12 @@ export class DataReaderService {
     );
   }
 
+  getEvent(id: string): Observable<CulturalEvent> {
+    return this.getAllEvents().pipe(
+      map((events: CulturalEvent[]) => events.find(event => event.trcid === id))
+    );
+  }
+
   getAllEvents(): Observable<CulturalEvent[]> {
     return this.http.get<CulturalEvent[]>(this.eventsUrl);
   }
@@ -40,6 +46,16 @@ export class DataReaderService {
         this.coord.transform(placeX),
         this.coord.transform(event.location.longitude),
         this.coord.transform(placeY)) < 1)));
+  }
+
+  getNerbyPlaces(eventX: string, eventY: string): Observable<Place[]> {
+    return this.getAllPlaces().pipe(map((places: Place[]) => places
+    .filter((place: Place) =>
+      this.distance(
+        this.coord.transform(place.location.latitude),
+        this.coord.transform(eventX),
+        this.coord.transform(place.location.longitude),
+        this.coord.transform(eventY)) < 1)));
   }
 
   distance(x2: number, x1: number, y2: number, y1: number): number {

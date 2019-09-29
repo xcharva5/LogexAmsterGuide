@@ -1,0 +1,13 @@
+* {
+  font-family: 'Dosis', sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.horizontal-separator {
+  max-width: inherit;
+  padding: 50px 50px 50px 0;
+
+}

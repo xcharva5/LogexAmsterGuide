@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
-import {SlideshowModule} from 'ng-simple-slideshow';
+import { SlideshowModule } from 'ng-simple-slideshow';
 
 // components
 import { AppComponent } from './app.component';
@@ -16,11 +16,11 @@ import { PlacesListComponent } from './Components/Places/places-list/places-list
 import { PlaceItemComponent } from './Components/Places/place-item/place-item.component'; // ok
 import { PlaceDetailComponent } from './Components/Places/place-detail/place-detail.component'; // ok
 import { PlacesMapComponent } from './Components/Places/places-map/places-map.component'; // ok
-
-import { EventsListComponent } from './Components/events-list/events-list.component';
-import { EventItemComponent } from './Components/event-item/event-item.component';
 import { PlacesComponent } from './Components/Places/places/places.component';
 import { PlacesSwitchComponent } from './Components/Places/places-switch/places-switch.component';
+
+import { EventsListComponent } from './Components/Events/events-list/events-list.component';
+import { EventItemComponent } from './Components/Events/event-item/event-item.component';
 
 // pipes
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
@@ -30,6 +30,10 @@ import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { CoordinatesPipe } from './Pipes/coordinates.pipe';
 import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
 import { OrderByPipe } from './Pipes/order-by';
+import { EventsComponent } from './Components/Events/events/events.component';
+import { EventDetailComponent } from './Components/Events/event-detail/event-detail.component';
+import { EventsMapComponent } from './Components/Events/events-map/events-map.component';
+import { EventsSwitchComponent } from './Components/Events/events-switch/events-switch.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { OrderByPipe } from './Pipes/order-by';
     EventsTitleFilterPipe,
     PlacesComponent,
     PlacesSwitchComponent,
-    OrderByPipe
+    OrderByPipe,
+    EventsComponent,
+    EventDetailComponent,
+    EventsMapComponent,
+    EventsSwitchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,58 @@
+<div *ngIf="selectedEvent as event" class="container text-center">
+  <h1>{{ event.title }}</h1>
+  <p>{{ event.details.en.shortdescription }}</p>
+  <p>{{ event.location.adress }}, {{ event.location.city }} {{ event.location.zipcode }}</p>
+  <p>Lat: {{ event.location.latitude }}, Lng: {{ event.location.longitude }}</p>
+  <div *ngFor="let url of event.urls">
+    <a [href]="url" target="_blank"> {{ url }} </a>
+  </div>
+  <button class="btn btn-primary" [routerLink]="['/events/list']">Back</button>
+
+  <div class="places-list">
+    <h2>Nerby Places</h2>
+    <div class="place-item" *ngFor="let place of nearbyPlaces">
+      <p>
+        {{ place.title }} <br>
+        {{ place.location.adress}}, {{ place.location.city }} {{ place.location.zipcode }} <br>
+    </p>
+    </div>
+  </div>
+
+
+  <slideshow *ngIf="imagesUrl.length"
+    [imageUrls]="imagesUrl"
+    [height]="'700px'"
+    [minHeight]="'525px'"
+    [autoPlay]="false"
+    [showArrows]="true">
+  </slideshow>
+
+  <div class="map">
+    <agm-map [latitude]="event.location.latitude | coordinates" [longitude]="event.location.longitude | coordinates" [zoom]="14">
+      <agm-marker
+        *ngFor="let place of nearbyPlaces"
+        [latitude]="place.location.latitude | coordinates"
+        [longitude]="place.location.longitude | coordinates"
+        [iconUrl]="placeIcon"
+        (markerClick)="clickedMarker(placeInfoWindow)">
+
+        <agm-info-window #placeInfoWindow>
+          <h4>{{ place.title }}</h4>
+        </agm-info-window>
+      </agm-marker>
+
+      <agm-marker
+        [latitude]="event.location.latitude | coordinates"
+        [longitude]="event.location.longitude | coordinates"
+        [iconUrl]="eventIcon"
+        (markerClick)="clickedMarker(eventInfoWindow)">
+
+        <agm-info-window #eventInfoWindow>
+          <h4>{{ event.title }}</h4>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
+
+  <button class="btn btn-primary" [routerLink]="['/events/list']">Back</button>
+</div>

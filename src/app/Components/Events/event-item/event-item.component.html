@@ -1,0 +1,16 @@
+<div class="container" [routerLink]="['/events/detail', event.trcid]">
+  <div class="row">
+      <div class="col-md-4">
+        {{ event.title }}
+      </div>
+      <div class="col-md-2">
+        {{ event.location.city }}
+      </div>
+      <div class="col-md-1">
+        {{ event.location.zipcode }}
+      </div>
+      <div class="col-md-4">
+        {{ event.location.adress }}
+      </div>
+  </div>
+</div>

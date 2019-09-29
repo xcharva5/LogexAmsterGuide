@@ -19,7 +19,5 @@ export class EventsListComponent implements OnInit {
 
     //this.dataReaderService.getNerbyEvents(52.3651330, 4.8988030).subscribe((events: CulturalEvent[]) => console.log(events));
 
-    //52,3566550, Lng: 4,9569500
-    //52,3902890, Lng: 4,8253350
   }
 }
