@@ -15,6 +15,23 @@ export class PlaceDetailComponent implements OnInit {
   selectedPlace: Place;
   imagesUrl: Array<string>;
   nearbyEvents: CulturalEvent[];
+  previous;
+
+  eventIcon = {
+    url: '../../../../assets/images/event-marker.png',
+    scaledSize: {
+      width: 40,
+      height: 40
+    }
+  };
+
+  placeIcon = {
+    url: '../../../../assets/images/place-marker.png',
+    scaledSize: {
+      width: 40,
+      height: 40
+    }
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -40,7 +57,12 @@ export class PlaceDetailComponent implements OnInit {
           .subscribe((events: CulturalEvent[]) => this.nearbyEvents = events);
         }
       );
+  }
 
-
+  clickedMarker(infowindow) {
+    if (this.previous) {
+      this.previous.close();
+    }
+    this.previous = infowindow;
   }
 }

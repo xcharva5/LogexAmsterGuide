@@ -31,7 +31,28 @@
 
   <div class="map">
     <agm-map [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates" [zoom]="14">
-      <agm-marker [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates"></agm-marker>
+      <agm-marker
+        *ngFor="let event of nearbyEvents"
+        [latitude]="event.location.latitude | coordinates"
+        [longitude]="event.location.longitude | coordinates"
+        [iconUrl]="eventIcon"
+        (markerClick)="clickedMarker(eventInfoWindow)">
+
+        <agm-info-window #eventInfoWindow>
+          <h4>{{ event.title }}</h4>
+        </agm-info-window>
+      </agm-marker>
+
+      <agm-marker
+        [latitude]="place.location.latitude | coordinates"
+        [longitude]="place.location.longitude | coordinates"
+        [iconUrl]="placeIcon"
+        (markerClick)="clickedMarker(placeInfoWindow)">
+
+        <agm-info-window #placeInfoWindow>
+          <h4>{{ place.title }}</h4>
+        </agm-info-window>
+      </agm-marker>
     </agm-map>
   </div>
 
