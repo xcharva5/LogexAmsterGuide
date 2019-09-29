@@ -62,7 +62,9 @@ import { OrderByPipe } from './Pipes/order-by';
     }),
     SlideshowModule
   ],
-  providers: [],
+  providers: [
+    CoordinatesPipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

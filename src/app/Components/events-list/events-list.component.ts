@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
+import { CulturalEvent } from 'src/app/Structures/culturalEvent';
 
 @Component({
   selector: 'app-events-list',
@@ -8,19 +9,17 @@ import { DataReaderService } from 'src/app/Services/data-reader.service';
 })
 export class EventsListComponent implements OnInit {
 
-  events: Event[];
+  allEvents: CulturalEvent[];
   titleSearchTerm: string;
 
-  constructor(private _dataReaderService: DataReaderService) { }
+  constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
+    this.dataReaderService.getAllEvents().subscribe((events) => this.allEvents = events);
 
-    const myObserver = {
-      next: (data: Event[]) => this.events = data,
-      error: err => console.error('Observer got an error: ' + err)
-    };
+    //this.dataReaderService.getNerbyEvents(52.3651330, 4.8988030).subscribe((events: CulturalEvent[]) => console.log(events));
 
-    this._dataReaderService.getAllEvents().subscribe(myObserver);
+    //52,3566550, Lng: 4,9569500
+    //52,3902890, Lng: 4,8253350
   }
-
 }

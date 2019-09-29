@@ -11,8 +11,8 @@ export interface Place {
     city: string,
     adress: string,
     zipcode: string,
-    latitude: number,
-    longitude: number
+    latitude: string,
+    longitude: string
   };
   urls: Array<string>;
   media: Array<Media>;

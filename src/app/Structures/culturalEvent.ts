@@ -1,13 +1,12 @@
-export interface Event {
+export interface CulturalEvent {
   trcid: string;
   title: string;
   location: {
-    name: string,
     city: string,
     adress: string,
     zipcode: string,
-    latitude: number,
-    longitude: number
+    latitude: string,
+    longitude: string
   };
   urls: Array<string>;
   media: Array<Media>;

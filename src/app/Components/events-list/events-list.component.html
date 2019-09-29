@@ -32,7 +32,7 @@
     {{events | json}}
   </pre>-->
 
-    <div *ngFor="let event of events | eventsTitleFilter:titleSearchTerm">
+    <div *ngFor="let event of allEvents | eventsTitleFilter:titleSearchTerm">
       <app-event-item [event]="event"></app-event-item>
     </div>
 </div>
