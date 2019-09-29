@@ -29,7 +29,7 @@
     </div>
     <div class="row">
       <div id="cities" class="collapse">
-        <span *ngFor="let city of citiesFilter">
+        <span *ngFor="let city of citiesFilter | orderBy:'name':false">
           <div class="checkbox">
             <div><input type="checkbox" [(ngModel)]="city.checked" [value]="city.name">{{ city.name }}</div>
           </div>

@@ -1,20 +1,28 @@
 
 
-<div *ngIf="selectedPlace | async as place" class="container text-center">
+<div *ngIf="selectedPlace as place" class="container text-center">
   <h1>{{ place.title }}</h1>
+  <p>{{ place.details.en.shortdescription }}</p>
   <p>{{ place.location.adress }}, {{ place.location.city }} {{ place.location.zipcode }}</p>
   <p>Lat: {{ place.location.latitude }}, Lng: {{ place.location.longitude }}</p>
   <div *ngFor="let url of place.urls">
     <a [href]="url" target="_blank"> Website </a>
   </div>
-  <button class="btn btn-primary" routerLinkActive="active" [routerLink]="['/places/list']">Back</button>
+  <button class="btn btn-primary" [routerLink]="['/places/list']">Back</button>
 
+  <slideshow
+    [imageUrls]="imagesUrl"
+    [height]="'700px'"
+    [minHeight]="'525px'"
+    [autoPlay]="false"
+    [showArrows]="true">
+  </slideshow>
 
-  <agm-map [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates" [zoom]="14">
-    <agm-marker [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates"></agm-marker>
-  </agm-map>
-
-  <div *ngFor="let image of place.media">
-    <img [src]="image.url" alt="img">
+  <div class="map">
+    <agm-map [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates" [zoom]="14">
+      <agm-marker [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates"></agm-marker>
+    </agm-map>
   </div>
+
+  <button class="btn btn-primary" [routerLink]="['/places/list']">Back</button>
 </div>

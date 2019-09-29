@@ -17,3 +17,7 @@ button:hover {
   color: bisque;
   background-color: rgba(57, 167, 130);
 }
+
+.map {
+  margin: 20px 0;
+}

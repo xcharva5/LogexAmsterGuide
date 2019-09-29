@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 // components
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { PlacesMapComponent } from './Components/Places/places-map/places-map.co
 
 import { EventsListComponent } from './Components/events-list/events-list.component';
 import { EventItemComponent } from './Components/event-item/event-item.component';
+import { PlacesComponent } from './Components/Places/places/places.component';
+import { PlacesSwitchComponent } from './Components/Places/places-switch/places-switch.component';
 
 // pipes
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
@@ -26,8 +29,7 @@ import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
 import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { CoordinatesPipe } from './Pipes/coordinates.pipe';
 import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
-import { PlacesComponent } from './Components/Places/places/places.component';
-import { PlacesSwitchComponent } from './Components/Places/places-switch/places-switch.component';
+import { OrderByPipe } from './Pipes/order-by';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { PlacesSwitchComponent } from './Components/Places/places-switch/places-
     EventsTitleFilterPipe,
     PlacesComponent,
     PlacesSwitchComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { PlacesSwitchComponent } from './Components/Places/places-switch/places-
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCc2j377we3MG6RhUWHRebUnapTnaaWbEE'  // API key for Google Maps
-    })
+    }),
+    SlideshowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

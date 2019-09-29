@@ -1,6 +1,12 @@
 export interface Place {
   trcid: string;
   title: string;
+  details: {
+    en: {
+      shortdescription: string;
+      longdescription: string;
+    };
+  };
   location: {
     city: string,
     adress: string,

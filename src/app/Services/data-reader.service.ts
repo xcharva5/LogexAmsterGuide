@@ -18,7 +18,7 @@ export class DataReaderService {
     return this.http.get<Place[]>(this.placesUrl);
   }
 
-  getPlace(id: string) {
+  getPlace(id: string): Observable<Place> {
     return this.getAllPlaces().pipe(
       map((places: Place[]) => places.find(place => place.trcid === id))
     );
