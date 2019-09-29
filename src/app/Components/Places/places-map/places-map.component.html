@@ -1,6 +1,16 @@
 <div class="container">
-  <h1>Places Map</h1>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10" (mapClick)="selectPosition($event)">
-    <agm-marker *ngFor="let place of places" [latitude]="place.location.latitude | coordinates" [longitude]="place.location.longitude | coordinates"></agm-marker>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+    <agm-marker
+      *ngFor="let place of places; let i = index;"
+      (markerClick)="clickedMarker(infoWindow)"
+      [latitude]="place.location.latitude | coordinates"
+      [longitude]="place.location.longitude | coordinates">
+
+      <agm-info-window
+        #infoWindow
+        (onclick)="goToDetails(place.trcid);">
+        <strong>{{ place.title }}</strong><br>
+      </agm-info-window>
+    </agm-marker>
   </agm-map>
 </div>

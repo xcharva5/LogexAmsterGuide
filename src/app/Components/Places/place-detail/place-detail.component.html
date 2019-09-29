@@ -6,7 +6,7 @@
   <p>{{ place.location.adress }}, {{ place.location.city }} {{ place.location.zipcode }}</p>
   <p>Lat: {{ place.location.latitude }}, Lng: {{ place.location.longitude }}</p>
   <div *ngFor="let url of place.urls">
-    <a [href]="url" target="_blank"> Website </a>
+    <a [href]="url" target="_blank"> {{ url }} </a>
   </div>
   <button class="btn btn-primary" [routerLink]="['/places/list']">Back</button>
 
