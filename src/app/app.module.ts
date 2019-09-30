@@ -12,15 +12,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
 
+import { PlacesComponent } from './Components/Places/places/places.component';
 import { PlacesListComponent } from './Components/Places/places-list/places-list.component'; // ok
 import { PlaceItemComponent } from './Components/Places/place-item/place-item.component'; // ok
 import { PlaceDetailComponent } from './Components/Places/place-detail/place-detail.component'; // ok
 import { PlacesMapComponent } from './Components/Places/places-map/places-map.component'; // ok
-import { PlacesComponent } from './Components/Places/places/places.component';
 import { PlacesSwitchComponent } from './Components/Places/places-switch/places-switch.component';
 
+import { EventsComponent } from './Components/Events/events/events.component';
 import { EventsListComponent } from './Components/Events/events-list/events-list.component';
 import { EventItemComponent } from './Components/Events/event-item/event-item.component';
+import { EventDetailComponent } from './Components/Events/event-detail/event-detail.component';
+import { EventsMapComponent } from './Components/Events/events-map/events-map.component';
+import { EventsSwitchComponent } from './Components/Events/events-switch/events-switch.component';
 
 // pipes
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
@@ -30,10 +34,9 @@ import { CityFilterPipe } from './pipes/city-filter.pipe';
 import { CoordinatesPipe } from './Pipes/coordinates.pipe';
 import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
 import { OrderByPipe } from './Pipes/order-by';
-import { EventsComponent } from './Components/Events/events/events.component';
-import { EventDetailComponent } from './Components/Events/event-detail/event-detail.component';
-import { EventsMapComponent } from './Components/Events/events-map/events-map.component';
-import { EventsSwitchComponent } from './Components/Events/events-switch/events-switch.component';
+import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.component';
+import { AboutComponent } from './Components/about/about.component';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { EventsSwitchComponent } from './Components/Events/events-switch/events-
     EventsComponent,
     EventDetailComponent,
     EventsMapComponent,
-    EventsSwitchComponent
+    EventsSwitchComponent,
+    PagenotfoundComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

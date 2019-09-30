@@ -11,13 +11,11 @@ export class EventsListComponent implements OnInit {
 
   allEvents: CulturalEvent[];
   titleSearchTerm: string;
+  dateSearchTerm: string;
 
   constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
     this.dataReaderService.getAllEvents().subscribe((events) => this.allEvents = events);
-
-    //this.dataReaderService.getNerbyEvents(52.3651330, 4.8988030).subscribe((events: CulturalEvent[]) => console.log(events));
-
   }
 }

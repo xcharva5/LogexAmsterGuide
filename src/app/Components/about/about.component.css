@@ -1,0 +1,17 @@
+* {
+  font-family: 'Dosis', sans-serif;
+}
+
+html, body {
+  height: 80%;
+}
+
+.container {
+  padding-top: 100px;
+  height: 80%;
+}
+
+img {
+  width: 70%;
+  margin-bottom: 130px;
+}

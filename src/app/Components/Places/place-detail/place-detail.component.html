@@ -8,17 +8,6 @@
   </div>
   <button class="btn btn-primary" [routerLink]="['/places/list']">Back</button>
 
-  <div class="events-list">
-    <h2>Nerby Events</h2>
-    <div class="event-item" *ngFor="let event of nearbyEvents">
-      <p>
-        {{ event.title }} <br>
-        {{ event.location.adress}}, {{ event.location.city }} {{ event.location.zipcode }} <br>
-    </p>
-    </div>
-  </div>
-
-
   <slideshow *ngIf="imagesUrl.length"
     [imageUrls]="imagesUrl"
     [height]="'700px'"
@@ -52,6 +41,16 @@
         </agm-info-window>
       </agm-marker>
     </agm-map>
+  </div>
+
+  <div class="events-list">
+    <h2 *ngIf="nearbyEvents.length">Nerby Events</h2>
+    <div class="event-item" *ngFor="let event of nearbyEvents">
+      <p>
+        {{ event.title }} <br>
+        {{ event.location.adress}}, {{ event.location.city }} {{ event.location.zipcode }} <br>
+    </p>
+    </div>
   </div>
 
   <button class="btn btn-primary" [routerLink]="['/places/list']">Back</button>

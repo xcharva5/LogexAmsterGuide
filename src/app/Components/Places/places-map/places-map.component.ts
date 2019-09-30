@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from 'src/app/Structures/place';
 import { DataReaderService } from 'src/app/Services/data-reader.service';
-import { Router } from '@angular/router';
 import { CityFilter } from 'src/app/Structures/cityFilter';
 
 @Component({

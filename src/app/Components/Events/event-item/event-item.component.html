@@ -9,8 +9,14 @@
       <div class="col-md-1">
         {{ event.location.zipcode }}
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         {{ event.location.adress }}
+      </div>
+      <div class="col-md-2 text-right" *ngIf="event.dates.singles">
+        {{ event.dates.singles[0] }}
+      </div>
+      <div class="col-md-2 text-right" *ngIf="!event.dates.singles">
+        n/a
       </div>
   </div>
 </div>
