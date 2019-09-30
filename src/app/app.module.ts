@@ -30,7 +30,7 @@ import { EventsSwitchComponent } from './Components/Events/events-switch/events-
 import { PlaceStartYearPipe } from './Pipes/PlaceStartYearPipe';
 import { SubstringFilterPipe } from './Pipes/substring-filter.pipe';
 import { CitiesFilterPipe } from './Pipes/cities-filter.pipe';
-import { CityFilterPipe } from './pipes/city-filter.pipe';
+import { CityFilterPipe } from './Pipes/city-filter.pipe';
 import { CoordinatesPipe } from './Pipes/coordinates.pipe';
 import { EventsTitleFilterPipe } from './Pipes/events-title-filter.pipe';
 import { OrderByPipe } from './Pipes/order-by';
