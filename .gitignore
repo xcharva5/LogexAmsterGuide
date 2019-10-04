@@ -44,3 +44,19 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+docs/3rdpartylicenses.txt
+docs/404.html
+docs/assets/data/establishment-data.json
+docs/assets/data/events-data.json
+docs/assets/images/amsterdam.jpg
+docs/assets/images/event-marker.png
+docs/assets/images/place-marker.png
+docs/assets/images/web_separator.png
+docs/es2015-polyfills.bda95d5896422d031328.js
+docs/favicon.ico
+docs/index.html
+docs/main.5a895e2d3c809239bfd0.js
+docs/polyfills.8bbb231b43165d65d357.js
+docs/runtime.26209474bfa8dc87a77c.js
+docs/scripts.6cf4da7113bcd1218d80.js
+docs/styles.9397e10fc105ed7a286f.css
