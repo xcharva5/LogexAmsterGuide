@@ -13,7 +13,7 @@ export class EventDetailComponent implements OnInit {
 
   eventId: string;
   selectedEvent: CulturalEvent;
-  imagesUrl: Array<string>;
+  imagesUrl: string[];
   nearbyPlaces: Place[];
   previous;
 
@@ -41,7 +41,8 @@ export class EventDetailComponent implements OnInit {
       this.eventId = params.eventid;
     });
 
-    this.imagesUrl = new Array<string>();
+    this.imagesUrl = [];
+    this.nearbyPlaces = [];
   }
 
   ngOnInit() {

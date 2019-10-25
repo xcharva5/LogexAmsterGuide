@@ -1,9 +1,4 @@
-export class CityFilter {
+export interface CityFilter {
   name: string;
   checked: boolean;
-
-  constructor(name: string) {
-    this.name = name;
-    this.checked = false;
-  }
 }

@@ -13,7 +13,7 @@ export class PlaceDetailComponent implements OnInit {
 
   placeId: string;
   selectedPlace: Place;
-  imagesUrl: Array<string>;
+  imagesUrl: string[];
   nearbyEvents: CulturalEvent[];
   previous;
 
@@ -41,7 +41,8 @@ export class PlaceDetailComponent implements OnInit {
       this.placeId = params.placeid;
     });
 
-    this.imagesUrl = new Array<string>();
+    this.imagesUrl = [];
+    this.nearbyEvents = [];
   }
 
   ngOnInit() {
@@ -50,6 +51,7 @@ export class PlaceDetailComponent implements OnInit {
       .subscribe(
         (place: Place) => {
           this.selectedPlace = place;
+          console.log(this.selectedPlace);
           place.media.forEach(media => {
             this.imagesUrl.push(media.url);
           });
@@ -57,6 +59,7 @@ export class PlaceDetailComponent implements OnInit {
           .subscribe((events: CulturalEvent[]) => this.nearbyEvents = events);
         }
       );
+    console.log(this.selectedPlace);
   }
 
   clickedMarker(infowindow) {
